@@ -1,0 +1,90 @@
+form {
+    width: 450px;
+    background-color: rgb(175, 175, 255);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.form-dupla{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.form-dupla label{
+    margin-bottom: 2px;
+}
+
+input[type="file"]::file-selector-button {
+    margin-top: 2px;
+    background-color: #4e4caf;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+    font-weight:bold;
+    font-size: 14px;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #3a3985;
+}
+
+input[type="submit"] {
+    background-color: #4e4caf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+     
+    margin-left: auto;
+    display:flex;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #3a3985;
+}
+
+input[type="text"]{
+    border-radius: 4px;
+    padding: 1px;
+}
+
+textarea{
+    border-radius: 4px;
+    padding: 1px;
+    min-height: 100px;
+}
+
+.preview {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    min-width: 250px;
+    min-height: 0px;
+    max-width: 250px;
+    max-height: 260px;
+
+    border: 2px solid #aaaaaa;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    object-fit: contain;
+
+    display:flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    font-size: 12px;
+}

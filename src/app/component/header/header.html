@@ -1,0 +1,27 @@
+<div class="Caixa">
+    <div routerLink="/home" 
+    class="Opcao" [class.OpcaoEscolhida]="Escolha === 1" [class.OpcaoNormal]="Escolha !== 1">
+    Home <img src="Icon.png" style="margin-left:5px" alt="Icone">
+    </div>
+    
+        <div style="width:100px"></div>
+
+    <div routerLink="/about" 
+    class="Opcao" [class.OpcaoEscolhida]="Escolha === 2" [class.OpcaoNormal]="Escolha !== 2">
+    About
+    </div>
+
+    <div routerLink="/view" 
+    class="Opcao" [class.OpcaoEscolhida]="Escolha === 3" [class.OpcaoNormal]="Escolha !== 3">
+    View
+    </div>
+
+    <div routerLink="/newImage"
+    class="Opcao" [class.OpcaoEscolhida]="Escolha === 4" [class.OpcaoNormal]="Escolha !== 4">
+        <div style="margin-left: 10px; margin-right: 10px;">
+        New Image
+        </div>
+    </div>
+    
+    <div class="titulo">ANG IMAGES</div>
+</div>

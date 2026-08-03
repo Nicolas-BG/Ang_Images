@@ -1,0 +1,61 @@
+.Caixa {
+    border-radius: 10px;
+    width:100%;
+    height: 75px;
+    background-color: rgb(120, 120, 255);
+    color: white;
+    display:flex;
+    align-items: center;
+    user-select: none;
+}
+
+.Opcao {
+    margin-left: 5px;
+    border-radius: 8px;
+    height: 90%;
+    min-width: 100px;    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;       
+}
+
+.OpcaoNormal {
+    background-color: rgb(120, 120, 255);
+    color: white;
+
+    transition: background-color 0.3s ease; 
+    transition: color 0.3s ease;
+}
+.OpcaoNormal:hover{
+    background-color: white;
+    color: rgb(120, 120, 255);
+    cursor: pointer;
+}
+
+.OpcaoEscolhida {
+    background-color: White !important;
+    color: rgb(120, 120, 255) !important;
+    transition: all 0s ease 0s !important;
+}
+
+
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.titulo {
+    border-radius: 8px;
+    height: 90%;
+    min-width: 100px;    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;       
+    margin-left: auto;
+    margin-right: 10px;
+}

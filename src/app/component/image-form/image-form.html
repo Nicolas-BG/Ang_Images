@@ -1,0 +1,29 @@
+<form (ngSubmit)="submit()" [formGroup]="imageForm" #formDir="ngForm">
+    <div class="form-dupla">
+        <label for="title">Título: </label>
+        <input type="text" placeholder="Coloque um título para sua imagem" formControlName="title" required />
+        @if (title.invalid && formDir.submitted) {
+            <div><p>*O título é obrigatório!</p></div>
+        }
+    </div>
+
+    <div class="form-dupla">
+        <label for="description">Descrição: </label>
+        <textarea placeholder="Coloque a descrição da imagem" formControlName="description" required></textarea>
+        @if (description.invalid && formDir.submitted) {
+            <div><p>*A descrição é obrigatória!</p></div>
+        }
+    </div>
+
+    <div class="form-dupla">
+        <label for="image">Coloque o arquivo da imagem: </label>
+        <input type="file" accept="image/*" (change)="selecionarImagem($event)" >
+
+    </div>
+
+    @if (imagemPreview) {
+        <img [src]="imagemPreview" class="preview">
+    }
+
+    <input type="submit" value="{{ TextValue }}">
+</form>
