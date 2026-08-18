@@ -1,7 +1,45 @@
-<comp-header [Escolha]=3></comp-header>
-<div class="container" style="min-height:73vh">
-    sdf
+<div class="page">
+
+    <comp-header [Escolha]=3></comp-header>
+    <div class="See">
+        <h2>Veja as imagens que estão compartilhando</h2>
+    </div>
+
+    <div class="view_space">
+        <div class="center">
+            <div class="image_search">                                   
+                <input type="text" placeholder="Pesquisar imagens..." #searchInput (keyup.enter)="search(searchInput.value)"/>
+                <button (click)="search( searchInput.value)"><fa-icon [icon]="faSearch"></fa-icon></button>
+                <button class="pad" (click)="back()">GO BACK</button>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="view_space">
+        <div class="center">
+            @if (Images().length > 0) {
+            @for (img of Images(); track $index) {
+            <div class="image_container">
+                <h3 class="image_title">{{ img.title }}</h3>
+                <img src="{{ baseUrl}}uploads/{{img.image }}" alt="{{ img.title }}" class="imagem" />
+                <p class="image_description">{{ img.description }}</p>
+                <div class="image_extras">
+                    <p class="image_date">{{ img.created_at }}</p>
+                    <p class="image_comments_amount">Comentários:{{img.comments!.length}}</p>
+                    <a routerLink="/view/{{ img.id }}" class="image_a">Ver detalhes</a>
+                </div>
+            </div>
+            }
+            } @else {
+            <div class="See">
+                <h2>Não tem imagens a ver...</h2>
+            </div>
+            }
+        </div>
+    </div>
+
+
+    <comp-footer style="margin-top:auto;"></comp-footer>
+
 </div>
-<comp-footer></comp-footer>
-
-

@@ -1,3 +1,4 @@
+<comp-messages></comp-messages>
 <div class="Caixa">
     <div routerLink="/home" 
     class="Opcao" [class.OpcaoEscolhida]="Escolha === 1" [class.OpcaoNormal]="Escolha !== 1">
@@ -23,5 +24,19 @@
         </div>
     </div>
     
+    @if (Escolha === 0) {
+        <div 
+        class="Opcao OpcaoEscolhida">
+         Image
+        </div>
+    }
+
+    @if (Escolha === -1) {
+        <div 
+        class="Opcao OpcaoEscolhida">
+        &nbsp;Editar Imagem&nbsp;
+        </div>
+    }
+
     <div class="titulo">ANG IMAGES</div>
 </div>

@@ -1,12 +1,14 @@
-<comp-header [Escolha]=4></comp-header>
-<div class="container" style="min-height:80vh;">    
+<div class="page">
+
+    <comp-header [Escolha]=4></comp-header>
+
     <div class="caixa">
         <div style="height: 15px"></div>
         <h2 style="margin-bottom: 15px;">Adicione suas imagens</h2>
-        <comp-image-form TextValue="Adicionar" (onSubmit)="createHandler($event)"></comp-image-form>        
+        <comp-image-form TextValue="Adicionar" (onSubmit)="createHandler($event)"></comp-image-form>
     </div>
     <div style="height: 20px"></div>
+
+    <comp-footer style="margin-top:auto;"></comp-footer>
+
 </div>
-<comp-footer></comp-footer>
-
-

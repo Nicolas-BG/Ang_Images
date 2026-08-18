@@ -1,4 +1,6 @@
 <form (ngSubmit)="submit()" [formGroup]="imageForm" #formDir="ngForm">
+    <input type="hidden" formControlName="id" />
+    
     <div class="form-dupla">
         <label for="title">Título: </label>
         <input type="text" placeholder="Coloque um título para sua imagem" formControlName="title" required />
@@ -15,14 +17,16 @@
         }
     </div>
 
-    <div class="form-dupla">
-        <label for="image">Coloque o arquivo da imagem: </label>
-        <input type="file" accept="image/*" (change)="selecionarImagem($event)" >
+    @if (!dataDaImagem()){
+        <div class="form-dupla">
+            <label for="image">Coloque o arquivo da imagem: </label>
+            <input type="file" accept="image/*" (change)="selecionarImagem($event)" >
 
-    </div>
+        </div>
 
-    @if (imagemPreview) {
-        <img [src]="imagemPreview" class="preview">
+        @if (imagemPreview) {
+            <img [src]="imagemPreview" class="preview">
+        }
     }
 
     <input type="submit" value="{{ TextValue }}">

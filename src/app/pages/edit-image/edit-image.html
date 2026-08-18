@@ -1,0 +1,15 @@
+<div class="page">
+
+<comp-header [Escolha]=-1></comp-header>
+<div class="center">
+
+@if (imagem()) {
+    <h2 class="edit_title">Editando o conteúdo da Imagem <span>{{imagem().title}}</span></h2>
+    <img class="imagem" src="{{ baseUrl }}uploads/{{imagem().image }}" alt="{{ imagem().title }}"/>
+    <comp-image-form (onSubmit)="editHandler($event)" TextValue="Editar" [Data_da_Imagem]="imagem()"></comp-image-form>
+}
+</div>
+
+<comp-footer style="margin-top:auto;"></comp-footer>
+
+</div>

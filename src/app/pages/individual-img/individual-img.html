@@ -1,0 +1,38 @@
+<div class="page">
+
+<comp-header [Escolha]=0></comp-header>
+@if (imagem()) {
+    <div class="center">
+        <h1 class="title_image">{{ imagem().title }}</h1>
+        <img class="imagem" src="{{ baseUrl }}uploads/{{imagem().image }}" alt="{{ imagem().title }}" style="width: 10%;height:10%" />
+        <div class="about_image">
+            <h2 class="about_image_title">Sobre essa Imagem:</h2>
+            <p class="about_image_text">{{ imagem().description }}</p>
+        </div>
+        <div class="action_image">
+            <h3 class="action_image_title">Ações:</h3>
+            <button routerLink="/edit/{{ imagem().id }}" class="botao b_edit">
+                <fa-icon [icon]="FaEdit"></fa-icon> Editar
+            </button>
+            <button (click)="deleteImagem(imagem().id! )"  class="botao b_delete">
+                <fa-icon [icon]="FaTimes"></fa-icon> Excluir
+            </button>
+        </div>
+        <div class="comments_image">
+            <h3 class="comments_image_title">Comentários:</h3>
+            @if ((imagem().comments?.length ?? 0) > 0)  {
+                @for (comment of imagem().comments!; track $index) {
+                    <div class="comment">
+                        <p class="comment_text">{{ comment.text }}</p>
+                        <p class="comment_date"></p>
+                    </div>
+                }
+            } @else {
+                <p class="no_comments">Não há comentários para esta imagem.</p>
+            }
+        </div>
+    </div>
+}
+<comp-footer style="margin-top:auto;"></comp-footer>
+
+</div>

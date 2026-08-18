@@ -6,6 +6,10 @@ import { ImageForm } from '../../component/image-form/image-form';
 import { ImageData } from '../../interfaces/Image'
 
 import { ImageService } from '../../services/image';
+import { MessagesService } from '../../services/messages';
+
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-new-image',
@@ -14,10 +18,14 @@ import { ImageService } from '../../services/image';
   styleUrl: './new-image.css',
 })
 export class NewImage {
-  constructor(private imageService: ImageService) {};
+  constructor(
+    private imageService: ImageService, 
+    private messagesService: MessagesService,
+    private router: Router
+  ) {};
 
   createHandler(image: ImageData){
-    console.log('deu boa');
+    
 
     const formData = new FormData()
 
@@ -30,7 +38,10 @@ export class NewImage {
 
     this.imageService.createImage(formData).subscribe();
     
-    console.log('deu boa pra caralho');
+    this.messagesService.add(`Imagem de nome "${image.title}" criada com sucesso!`);
+
+    this.router.navigate(['/view']); //mudar pra view
+
   }
 
 }

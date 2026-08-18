@@ -7,6 +7,7 @@
     display:flex;
     align-items: center;
     user-select: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .Opcao {
@@ -32,12 +33,15 @@
     background-color: white;
     color: rgb(120, 120, 255);
     cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    
 }
 
 .OpcaoEscolhida {
     background-color: White !important;
     color: rgb(120, 120, 255) !important;
     transition: all 0s ease 0s !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, signal, input, effect } from '@angular/core';
 
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -17,17 +17,38 @@ export class ImageForm {
   @Output() onSubmit = new EventEmitter<ImageData>();
   //@Output() onSubmit = new EventEmitter<any>();
   @Input() TextValue!: string;
+  dataDaImagem = input<ImageData | null>(null, {
+    alias: 'Data_da_Imagem'
+  });
+
   
   //cuidar do formulario
   
-  imageForm!: FormGroup;  
+  imageForm!: FormGroup;
 
-  ngOnInit():void{
+  constructor() {
+  effect(() => {
+    const data = this.dataDaImagem();
+
+    if (this.imageForm) {
+      this.imageForm.patchValue({
+        id: data?.id ?? '',
+        title: data?.title ?? '',
+        description: data?.description ?? '',
+        image: data?.image ?? ''
+      });
+    }
+  });
+}
+
+  ngOnInit(): void {
+    const data = this.dataDaImagem();
+
     this.imageForm = new FormGroup({
-      id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      image: new FormControl(''),
+      id: new FormControl(data ? data.id : ''),
+      title: new FormControl(data ? data.title : '', [Validators.required]),
+      description: new FormControl(data ? data.description : '', [Validators.required]),
+      image: new FormControl(data ? data.image : ''),
     });
   }
 
@@ -43,8 +64,8 @@ export class ImageForm {
     if(this.imageForm.invalid){
       return;
     }
-    console.log("Enviou Formulário: ");
-    console.log(this.imageForm.value);
+    //console.log("Enviou Formulário: ");
+    //console.log(this.imageForm.value);
     
     this.onSubmit.emit(this.imageForm.value);
   }
