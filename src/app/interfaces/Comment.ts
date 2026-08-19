@@ -1,5 +1,5 @@
-export interface Comment {
-    id?: string,
+export interface CommentData {
+    id?: number,
     text: string,
     username: string,
     momentId: number,

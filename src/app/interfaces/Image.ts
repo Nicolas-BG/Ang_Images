@@ -6,4 +6,5 @@ export interface ImageData {
     created_at?: string,
     updated_at?: string,
     comments?: [{ text:string, username:string }]
+    created_at_formatted?: string,
 }

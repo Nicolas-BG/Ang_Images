@@ -43,18 +43,7 @@
     overflow: auto;
     background-color: rgb(152, 152, 245);
 }
-.about_image_text::-webkit-scrollbar {
-    width: 12px;
-    background: transparent;
-}
-.about_image_text::-webkit-scrollbar-track {
-    background: rgba(230, 230, 255, 0.75);
-    border-radius: 10px;
-}
-.about_image_text::-webkit-scrollbar-thumb {
-    background: rgb(131, 131, 255);
-    border-radius: 10px;
-}
+
 .action_image{
     margin: 10px;
     background-color: rgb(120, 120, 255);
@@ -99,22 +88,115 @@
 
 
 
-.comments_image{
 
+.comments_title{
+    margin-top: 10px;
 }
-.comments_image_title{
+.comments_box{
+    margin-bottom: 15px;
+    width: 80%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
 
 }
 
 .comment{
-
+    padding: 20px;    
+    border-radius: 10px;
+    background-color: rgb(231, 231, 255);
+    margin: 5px;
 }
 .comment_text{
-
+    background-color: rgb(199, 199, 255);
+    padding: 5px;
+    border-radius: 10px;
+    width: 350px;
+    height: 100px;
+    color: white;
+    overflow: auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
-.comment_date{
-
+.comment_author{
+    
+    margin-bottom: 5px;
+}
+.comment_author span{
+    font-weight: bold;
+    font-style: italic;
 }
 .no_comments{
+    font-weight: bold;
+    font-style: italic;
+}
 
+
+.comment_form{
+    width: 350px;
+    background-color: rgb(175, 175, 255);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+.form_group{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+.form_group label{
+    margin-top: 5px;
+    margin-bottom: 2px;
+} 
+.form_group textarea{
+    height: 90px;
+    overflow:auto;
+    padding: 3px;
+}
+.form_group input[type="text"] {
+    height: 20px;
+    padding: 3px;
+}
+.comment_form input[type="submit"] {
+    background-color: #4e4caf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+     
+    margin-left: auto;
+    display:flex;
+    transition: background-color 0.3s ease;
+}
+.comment_form input[type="submit"]:hover {
+    background-color: #3a3985;
+}
+
+/*barra de rolagem*/
+
+::-webkit-scrollbar {
+    width: 12px;
+    background: transparent;
+}
+::-webkit-scrollbar-track {
+    background: rgba(230, 230, 255, 0.75);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(131, 131, 255);
+    border-radius: 10px;
+}
+
+.comment_text::-webkit-scrollbar-track{
+    background: rgb(169, 169, 255);
+}
+
+.comment_text::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 255, 0.75);
 }

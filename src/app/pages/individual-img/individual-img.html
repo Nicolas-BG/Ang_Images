@@ -1,10 +1,11 @@
 <div class="page">
 
-<comp-header [Escolha]=0></comp-header>
-@if (imagem()) {
+    <comp-header [Escolha]=0></comp-header>
+    @if (imagem()) {
     <div class="center">
         <h1 class="title_image">{{ imagem().title }}</h1>
-        <img class="imagem" src="{{ baseUrl }}uploads/{{imagem().image }}" alt="{{ imagem().title }}" style="width: 10%;height:10%" />
+        <img class="imagem" src="{{ baseUrl }}uploads/{{imagem().image }}" alt="{{ imagem().title }}"
+            style="width: 10%;height:10%" />
         <div class="about_image">
             <h2 class="about_image_title">Sobre essa Imagem:</h2>
             <p class="about_image_text">{{ imagem().description }}</p>
@@ -14,25 +15,52 @@
             <button routerLink="/edit/{{ imagem().id }}" class="botao b_edit">
                 <fa-icon [icon]="FaEdit"></fa-icon> Editar
             </button>
-            <button (click)="deleteImagem(imagem().id! )"  class="botao b_delete">
+            <button (click)="deleteImagem(imagem().id! )" class="botao b_delete">
                 <fa-icon [icon]="FaTimes"></fa-icon> Excluir
             </button>
         </div>
-        <div class="comments_image">
-            <h3 class="comments_image_title">Comentários:</h3>
-            @if ((imagem().comments?.length ?? 0) > 0)  {
-                @for (comment of imagem().comments!; track $index) {
-                    <div class="comment">
-                        <p class="comment_text">{{ comment.text }}</p>
-                        <p class="comment_date"></p>
-                    </div>
-                }
+
+        <h3 class="comments_title">Comentários({{imagem().comments! ? imagem().comments!.length : 0}}):</h3>
+        <div class="comments_box">            
+            @if ((imagem().comments?.length ?? 0) > 0) {
+            @for (comment of imagem().comments!; track $index) {
+            <div class="comment">
+                <p class="comment_author">por: <span>{{comment.username}}</span></p>
+                <p class="comment_text">{{ comment.text }}</p>
+                
+            </div>
+            }
             } @else {
-                <p class="no_comments">Não há comentários para esta imagem.</p>
+            <p class="no_comments">Não há comentários para esta imagem.</p>
             }
         </div>
+
+        <div class="comment_form">
+            <h3>Deixe um comentário!</h3>
+            <form [formGroup]="commentForm" #formDir="ngForm" (ngSubmit)="com_submit(formDir)">
+                <div class="form_group">
+                    <label for="text">Comentário:</label>
+                    <textarea formControlName="text" placeholder="O que você quer comentar?" required></textarea>
+                    @if (text.invalid && formDir.submitted) {
+                    <div>
+                        <p>*O texto do comentário é obrigatório!</p>
+                    </div>
+                    }
+                </div>
+                <div class="form_group">
+                    <label for="username">Nome:</label>
+                    <input formControlName="username" type="text" placeholder="Digite o seu nome:" required>
+                    @if (username.invalid && formDir.submitted) {
+                    <div>
+                        <p>*O nome do usuário é obrigatório!</p>
+                    </div>
+                    }
+                </div>
+                <input type="submit" value="Comentar!">
+            </form>
+        </div>
     </div>
-}
-<comp-footer style="margin-top:auto;"></comp-footer>
+    }
+    <comp-footer style="margin-top:auto;"></comp-footer>
 
 </div>

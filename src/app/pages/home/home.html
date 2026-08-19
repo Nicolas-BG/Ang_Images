@@ -1,6 +1,37 @@
 <div class="page">
-    
+
     <comp-header [Escolha]=1></comp-header>
-    
-    <comp-footer style="margin-top:auto;"></comp-footer>
+    <div class="See">
+        <h2>Veja as imagens mais recentes que estão compartilhando</h2>
+    </div>
+
+
+
+    <div class="view_space">
+        <div class="center">
+            @if (Images().length > 0) {
+            @for (img of Images(); track img.id; let i = $index) {
+            @if (i < 4) { <div class="image_container">
+                <h3 class="image_title">{{ img.title }}</h3>
+                <img src="{{ baseUrl}}uploads/{{img.image }}" alt="{{ img.title }}" class="imagem" />
+                <p class="image_description">{{ img.description }}</p>
+                <div class="image_extras">
+                    <p class="image_date">{{ img.created_at_formatted }}</p>
+                    <p class="image_comments_amount">Comentários:{{img.comments!.length}}</p>
+                    <a routerLink="/view/{{ img.id }}" class="image_a">Ver detalhes</a>
+                </div>
+        </div>
+        }
+        }
+        } @else {
+        <div class="See">
+            <h2>Não tem imagens a ver...</h2>
+        </div>
+        }
+    </div>
+</div>
+
+
+<comp-footer style="margin-top:auto;"></comp-footer>
+
 </div>

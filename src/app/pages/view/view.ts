@@ -36,16 +36,25 @@ export class View implements OnInit {
   ngOnInit(): void {
     this.imageService.getImages().subscribe((items) => {
 
-      const data = items.data;
+    const data = items.data
+      .map(item => ({
+        ...item,
+        created_at_formatted: new Date(
+          item.created_at!.replace(' ', 'T')
+        ).toLocaleDateString('pt-BR')
+      }))
+      .sort((a, b) => {
+        const dateA = new Date(a.created_at!.replace(' ', 'T')).getTime();
+        const dateB = new Date(b.created_at!.replace(' ', 'T')).getTime();
 
-      data.forEach(item => {
-        item.created_at = new Date(item.created_at!).toLocaleDateString('pt-BR');
+        return dateB - dateA;
       });
 
-      this.allImages.set(data);
-      this.Images.set(data);
-      //console.log(this.allImages());
-    });
+    console.log(items.data.map(item => item.created_at));
+
+    this.allImages.set(data);
+    this.Images.set(data);
+  });
   }
 
   search(texto: String): void {

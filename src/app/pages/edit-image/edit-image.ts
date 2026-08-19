@@ -8,7 +8,7 @@ import { ImageData } from '../../interfaces/Image'
 import { ImageService } from '../../services/image';
 import { MessagesService } from '../../services/messages';
 
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -18,7 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-edit-image',
-  imports: [Header, Footer, ImageForm, FontAwesomeModule, RouterLink],
+  imports: [Header, Footer, ImageForm, FontAwesomeModule],
   templateUrl: './edit-image.html',
   styleUrl: './edit-image.css',
 })
@@ -55,7 +55,7 @@ export class EditImage {
         console.log("Imagem editada com sucesso!");
 
         this.messagesService.add(`A imagem foi editada com sucesso!`);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/view/'+id]);
       },
 
       error: (error) => {

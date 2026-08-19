@@ -25,7 +25,7 @@
                 <img src="{{ baseUrl}}uploads/{{img.image }}" alt="{{ img.title }}" class="imagem" />
                 <p class="image_description">{{ img.description }}</p>
                 <div class="image_extras">
-                    <p class="image_date">{{ img.created_at }}</p>
+                    <p class="image_date">{{ img.created_at_formatted }}</p>
                     <p class="image_comments_amount">Comentários:{{img.comments!.length}}</p>
                     <a routerLink="/view/{{ img.id }}" class="image_a">Ver detalhes</a>
                 </div>
